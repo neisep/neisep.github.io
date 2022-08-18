@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>NeiSep</title>
+    <link>//www.neisep.com/</link>
+    <description>Recent content on NeiSep</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 21 Oct 2020 22:00:45 +0200</lastBuildDate>
+    
+	<atom:link href="//www.neisep.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Why i like StringBuilder</title>
+      <link>//www.neisep.com/posts/why-i-like-stringbuilder/</link>
+      <pubDate>Wed, 21 Oct 2020 22:00:45 +0200</pubDate>
+      
+      <guid>//www.neisep.com/posts/why-i-like-stringbuilder/</guid>
+      <description>Maybe you have heard of StringBuilder but never used it, well in most cases concating a string is good enought.
+But in some rare cases you can use stringbuilder i show you why.
+ Here is an example    as you can see string += is pretty much slower then stringbuilder and thats because string is not mutable.
+Everytime you set text to a string it will create a new location in memory for placing the text meanwhile stringbuilder is mutable it has the same instance in memory, so when should you use stringbuilder?</description>
+    </item>
+    
+    <item>
+      <title>En Guide Till Ean Koder Del 2</title>
+      <link>//www.neisep.com/posts/en-guide-till-ean-koder-del-2/</link>
+      <pubDate>Sat, 09 Mar 2019 11:18:02 +0100</pubDate>
+      
+      <guid>//www.neisep.com/posts/en-guide-till-ean-koder-del-2/</guid>
+      <description>Här kommer en exempel kod som jag skrivit för att ta fram kontrolsiffran för EAN-13 och EAN-8
+ Liten bonus, hur du använder validering på det vi precis skrev
+ Nästa del tar vi och går igenom viktartiklar eller viktean.</description>
+    </item>
+    
+    <item>
+      <title>En Guide Till Ean Koder Del 1</title>
+      <link>//www.neisep.com/posts/en-guide-till-ean-koder-del-1/</link>
+      <pubDate>Mon, 25 Feb 2019 11:04:39 +0100</pubDate>
+      
+      <guid>//www.neisep.com/posts/en-guide-till-ean-koder-del-1/</guid>
+      <description>UPDATERAD - hela uträckningen var fel pga av ean koden var fel men det är fixat nu.
+EAN står för Europa artikel nummer översatt från European article number det är ett sätt att hantera koder, EAN kallas nummera Gtin som står för Global trade item number kan vara bra att veta om du skulle komma i kontakt med gtin-13 som alltså är ean-13.
+Det finns fler typer än bara EAN men i europa är EAN vanligast och därför väljer jag att skriva om just EAN-8 och EAN-13 i första hand eftersom EAN-8 är egentligen mindre version av EAN-13.</description>
+    </item>
+    
+    <item>
+      <title>Norway</title>
+      <link>//www.neisep.com/posts/norway/</link>
+      <pubDate>Sun, 16 Dec 2018 10:59:56 +0100</pubDate>
+      
+      <guid>//www.neisep.com/posts/norway/</guid>
+      <description>Well this Year i went to Norway at first i did not know if i wanted to share this on this website and i thought to myself why not.
+Everything has not to be about C# and programming so i share my trip to Norway during this summer, it was a really awesome trip my friend learn me a lot it is crazy going from a super comfortable life style going to a trip to watch mountain and the nature basically, Completely something im not used to for example use a toilet….</description>
+    </item>
+    
+    <item>
+      <title>Anything New Yet No</title>
+      <link>//www.neisep.com/posts/anything-new-yet-no/</link>
+      <pubDate>Sat, 21 Jul 2018 10:58:53 +0100</pubDate>
+      
+      <guid>//www.neisep.com/posts/anything-new-yet-no/</guid>
+      <description>Well right now i have been busy learning but that never change thought, but i been looking into open source project too help out on. Specific interested in Storj but currently have to wait for V3 of the protocol until i can do anything more because they will change a lot of things in API and functions, anyway Storj is a cloud storage such as AWS but much cheaper. Storj is unfortunately still in testing so should not be used for any kind of production environment, but it is really interesting to play around with.</description>
+    </item>
+    
+    <item>
+      <title>How Too Use Tasks and Progressbar in Net</title>
+      <link>//www.neisep.com/posts/how-too-use-tasks-and-progressbar-in-net/</link>
+      <pubDate>Fri, 17 Nov 2017 10:53:10 +0100</pubDate>
+      
+      <guid>//www.neisep.com/posts/how-too-use-tasks-and-progressbar-in-net/</guid>
+      <description>Everybody know how nice Task can be to work with, but did you know there is actually a interface for using a progressbar. I will show you how to use it and how to implement it and make use of it.
+First of we start with write a class i called it ProgressClass with a int this will contain our reported progress. You can extend this class to contain anything you like that has todo with the progress reporting for example maybe you want to set Max value to your progressbar you could do this with an extra field in ProgressClass if you like to.</description>
+    </item>
+    
+    <item>
+      <title>Working on a Small Utility to Push Emails to Apis</title>
+      <link>//www.neisep.com/posts/working-on-a-small-utility-to-push-emails-to-apis/</link>
+      <pubDate>Sat, 26 Aug 2017 10:50:30 +0100</pubDate>
+      
+      <guid>//www.neisep.com/posts/working-on-a-small-utility-to-push-emails-to-apis/</guid>
+      <description>Lately been working on a small utility to push emails to any kind of api, anyone can create a api integration in the software.
+You get all the information from the software and for now we have support for OsTicket api, but i will look into to add support for Katak support to, but there is probobly plenty more to work on also, such as attachment im pretty sure thats not completed either yet.</description>
+    </item>
+    
+    <item>
+      <title>Who Remember Fasttracker 2</title>
+      <link>//www.neisep.com/posts/who-remember-fasttracker-2/</link>
+      <pubDate>Mon, 22 May 2017 10:45:43 +0100</pubDate>
+      
+      <guid>//www.neisep.com/posts/who-remember-fasttracker-2/</guid>
+      <description>You probobly aren’t familier with FastTracker 2 well anyway it is a tracker software were you basicly write your music.
+it looks like this:
+  Who said you couldn’t program music right, i find it very inspiring so much talent out there.</description>
+    </item>
+    
+    <item>
+      <title>C# Relay Server</title>
+      <link>//www.neisep.com/posts/c-relay-server/</link>
+      <pubDate>Mon, 22 May 2017 10:11:53 +0100</pubDate>
+      
+      <guid>//www.neisep.com/posts/c-relay-server/</guid>
+      <description>Created a small small relay server, right now it only works with text and the concept is that a client connect too a server with a key and password to connect to another server.
+So basicly this will replace my old junkie Support tool later on.
+But we will see</description>
+    </item>
+    
+  </channel>
+</rss>
