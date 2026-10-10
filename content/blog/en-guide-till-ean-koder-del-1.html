@@ -1,0 +1,13 @@
+---
+title: "En Guide Till Ean Koder Del 1"
+date: 2019-02-25T11:04:39+01:00
+aliases: ["/posts/en-guide-till-ean-koder-del-1/"]
+---
+<p><em>UPDATERAD - hela uträckningen var fel pga av ean koden var fel men det är fixat nu.</em></p><p>EAN står för Europa artikel nummer översatt från European article number det är ett sätt att hantera koder,
+EAN kallas nummera Gtin som står för Global trade item number kan vara bra att veta om du skulle komma i kontakt med gtin-13 som alltså är ean-13.</p><p>Det finns fler typer än bara EAN men i europa är EAN vanligast och därför väljer jag att skriva om just EAN-8 och EAN-13 i första hand eftersom EAN-8 är egentligen mindre version av EAN-13.</p><p>Så hur är EAN-13 uppdelat jo det ser ut så här:</p><pre><code>Landskod  | Producent  | artikelnummer  | kontrollsiffra
+----------|------------|----------------|------------------
+70        | 44610      | 01493          | 7
+</code></pre><p>Första 2 sifforna är landskoden, de 5 andra sifforna är producentens den tilldelas av Sveriges ansvarige myndighet/organisation, nästa 5 siffror är producentens artikel nummer och sista siffran är kontroll siffran.</p><p>Men de finns faktiskt fler ean koder som innehåller 13 siffror som exempelvis vikt artiklar
+eller visste du tillexempel att tidningar har en egen streckkod serie för att få ut priset på tidningen de står alltså i själva ean koden hur mycket den kostar.</p><p>Men vikt ean och ean koder för tidningar kommer jag skriva om så småning om.</p><h1 id=uträckning-av-kontrollsiffran>Uträckning av kontrollsiffran</h1><p>Du räknar ut kontrollsiffran genom att först summera varannan siffra från höger sida, som i vårt fall då blir det:
+0+4+1+0+4+3 = 12</p><p>Sedan tar du summan gånger 3 så här</p><p>12 x 3 = 36</p><p>Summera sedan dom resterande siffrorna som du hoppade över så här</p><p>7+4+6+0+1+9 = 27</p><p>Sedan lägger vi ihop dessa två summor alltså så här</p><p>36+27 = 63</p><p>Så nu behöver du ta total summan minus närmsta högre tiotal de vill säga 70</p><p>70-63=7 alltså är det då kontrollsiffra 7</p><p>Det kommer komma en Del 2 med exempel kod för hur vi kan hantera EAN koden på ett enkelt sätt i vår kod.
+Hur som helst nu bör du ha en viss förståelse för hur EAN 13 och 8 är uppbyggt.</p>

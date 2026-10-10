@@ -1,0 +1,6 @@
+{{- /* Returns the data/projects.yaml entry whose slug matches the given string. */ -}}
+{{- $found := dict -}}
+{{- range hugo.Data.projects -}}
+  {{- if eq .slug $ -}}{{- $found = . -}}{{- end -}}
+{{- end -}}
+{{- return $found -}}

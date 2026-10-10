@@ -1,0 +1,6 @@
+{{- $p := partial "project-data.html" .Params.project -}}
+<li class="news-item">
+  <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+  <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+  {{ with $p.tech }}<span class="chip-muted">{{ index . 0 }}</span>{{ end }}
+</li>

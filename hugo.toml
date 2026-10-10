@@ -1,0 +1,40 @@
+baseURL = "https://www.neisep.com/"
+locale = "en-US"
+title = "NeiSep"
+enableRobotsTXT = true
+
+[params]
+  author = "Jimmie Jönsson"
+  description = "Software developer building fast, native desktop tools in Rust and C#."
+  github = "https://github.com/neisep"
+  linkedin = "https://www.linkedin.com/in/jimmiejonsson"
+
+[menus]
+  [[menus.main]]
+    name = "Projects"
+    pageRef = "/projects"
+    weight = 10
+  [[menus.main]]
+    name = "News"
+    pageRef = "/news"
+    weight = 20
+  [[menus.main]]
+    name = "Blog"
+    pageRef = "/blog"
+    weight = 30
+
+[outputs]
+  home = ["html", "rss"]
+  section = ["html", "rss"]
+
+[taxonomies]
+
+[caches.getresource]
+  maxAge = "10m"
+
+[markup.goldmark.renderer]
+  unsafe = false
+
+# The archived blog posts are plain HTML content files (content/blog/*.html).
+[security]
+  allowContent = ['^text/(markdown|html)$']

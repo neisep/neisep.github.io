@@ -1,0 +1,30 @@
+# One entry per showcased project. `slug` must match content/projects/<slug>.md.
+# Release news is fetched from https://api.github.com/repos/<repo>/releases at build time.
+- slug: justanothergitgui
+  name: Just Another Git GUI
+  repo: neisep/justanothergitgui
+  tagline: A lightweight cross-platform Git desktop app with native GitHub publishing and PR flow.
+  tech: [Rust, egui, Git]
+  image: /img/projects/justanothergitgui.png
+- slug: probe
+  name: Probe
+  repo: neisep/Probe
+  tagline: A native, fast REST client. Plain .http files, no cloud, no telemetry.
+  tech: [Rust, egui, HTTP]
+- slug: mdnotes
+  name: MdNotes
+  repo: neisep/MdNotes
+  tagline: Local, Obsidian-style Markdown notes with natively rendered Mermaid diagrams.
+  tech: [C#, .NET 10, Avalonia]
+  image: /img/projects/mdnotes.png
+  private: true  # repo not public: no source link or downloads on the site
+- slug: vlc2chromecast
+  name: vlc2chromecast
+  repo: neisep/vlc2chromecast-rust
+  tagline: Stream local video files to your Chromecast, powered by VLC.
+  tech: [Rust, egui, VLC]
+- slug: waf-analyzer
+  name: WAF Analyzer for OPNsense
+  repo: neisep/waf-suggestion-opnsense
+  tagline: OPNsense plugin that suggests narrowly scoped WAF rules from your nginx access logs.
+  tech: [OPNsense, Python, PHP]
