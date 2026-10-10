@@ -1,5 +1,5 @@
 ---
 title: "Blog"
-description: "Older writing, kept for the archive."
+description: "Notes on what I'm building and learning."
 aliases: ["/posts/"]
 ---
