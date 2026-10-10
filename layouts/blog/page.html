@@ -1,0 +1,10 @@
+{{ define "main" }}
+<article>
+  <header class="page-head">
+    <a class="eyebrow" href="/blog/">Blog</a>
+    <h1>{{ .Title }}</h1>
+    <time class="muted" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }} · {{ .ReadingTime }} min read</time>
+  </header>
+  <div class="prose">{{ .Content }}</div>
+</article>
+{{ end }}

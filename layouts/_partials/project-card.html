@@ -1,0 +1,19 @@
+{{- $p := . -}}
+{{- $latest := partial "releases-for.html" $p.slug | first 1 -}}
+{{- with site.GetPage (printf "/projects/%s" $p.slug) -}}
+<a class="card" href="{{ .RelPermalink }}">
+  {{- if $p.image }}
+  <img class="card-image" src="{{ $p.image }}" alt="Screenshot of {{ $p.name }}">
+  {{- else }}
+  <div class="card-image card-placeholder" aria-hidden="true">{{ substr $p.name 0 1 | upper }}</div>
+  {{- end }}
+  <div class="card-body">
+    <div class="card-title">
+      <h3>{{ $p.name }}</h3>
+      {{ range $latest }}<span class="badge">{{ .Params.tag }}</span>{{ end }}
+    </div>
+    <p>{{ $p.tagline }}</p>
+    <ul class="chips">{{ range $p.tech }}<li>{{ . }}</li>{{ end }}</ul>
+  </div>
+</a>
+{{- end -}}

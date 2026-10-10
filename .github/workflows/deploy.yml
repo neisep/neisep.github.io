@@ -1,0 +1,58 @@
+name: Build & Deploy site
+
+on:
+  push:
+    branches: [master]
+  schedule:
+    - cron: '17 * * * *' # hourly: picks up new releases from the project repos
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+env:
+  HUGO_VERSION: 0.166.0
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Hugo
+        run: |
+          curl -sSLo hugo.tar.gz "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
+          tar -xzf hugo.tar.gz hugo
+          sudo mv hugo /usr/local/bin/hugo
+          rm hugo.tar.gz
+          hugo version
+
+      - id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Build
+        env:
+          # RELEASES_READ_TOKEN (optional) is a fine-grained PAT with read-only Contents on private
+          # project repos (MdNotes). Without it only public repos' releases are included.
+          HUGO_GITHUB_TOKEN: ${{ secrets.RELEASES_READ_TOKEN || github.token }}
+        run: hugo --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,12 @@
+<header class="site-header">
+  <div class="container site-header-inner">
+    <a class="brand" href="/"><img src="/avatar.jpg" alt="" width="32" height="32"><span>{{ site.Title }}</span></a>
+    <nav aria-label="Main">
+      {{ $current := . }}
+      {{ range site.Menus.main }}
+        {{ $active := or ($current.IsMenuCurrent "main" .) ($current.HasMenuCurrent "main" .) }}
+        <a href="{{ .URL }}"{{ if $active }} aria-current="page"{{ end }}>{{ .Name }}</a>
+      {{ end }}
+    </nav>
+  </div>
+</header>

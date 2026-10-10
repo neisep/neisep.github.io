@@ -1,0 +1,11 @@
+{{ define "main" }}
+<header class="page-head">
+  <h1>{{ .Title }}</h1>
+  {{ with .Description }}<p class="lead">{{ . }}</p>{{ end }}
+</header>
+{{ with .RegularPages.ByDate.Reverse }}
+<ul class="news-list">{{ range . }}{{ partial "news-item.html" . }}{{ end }}</ul>
+{{ else }}
+<p class="muted">No releases yet.</p>
+{{ end }}
+{{ end }}

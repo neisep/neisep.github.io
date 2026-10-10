@@ -1,0 +1,7 @@
+---
+title: "Why i like StringBuilder"
+date: 2020-10-21T22:00:45+02:00
+aliases: ["/posts/why-i-like-stringbuilder/"]
+---
+<p>Maybe you have heard of StringBuilder but never used it, well in most cases concating a string is good enought.<br>But in some rare cases you can use stringbuilder i show you why.</p><pre><code> Here is an example
+</code></pre><figure><img src=/img/stringbuilder.PNG height=500px></figure><p>as you can see string += is pretty much slower then stringbuilder and thats because string is not mutable.<br>Everytime you set text to a string it will create a new location in memory for placing the text meanwhile stringbuilder is mutable it has the same instance in memory, so when should you use stringbuilder?<br>Well i would say it is upto you too choose most cases you don&rsquo;t.</p><p>But for performance it could be useful, i learnt this when i wrote code for a barcode scanner couple years ago.</p><p>There might be even better ways todo this, but this is the one i know of.</p>

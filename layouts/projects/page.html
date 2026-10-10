@@ -1,0 +1,36 @@
+{{ define "main" }}
+{{ $p := partial "project-data.html" .File.ContentBaseName }}
+{{ $releases := partial "releases-for.html" $p.slug }}
+<article class="project">
+  <header class="page-head">
+    <h1>{{ .Title }}</h1>
+    {{ with $p.tagline }}<p class="lead">{{ . }}</p>{{ end }}
+    <ul class="chips">{{ range $p.tech }}<li>{{ . }}</li>{{ end }}</ul>
+    {{ if not $p.private }}
+    <div class="actions"><a class="btn" href="https://github.com/{{ $p.repo }}" rel="noopener">Source on GitHub</a></div>
+    {{ end }}
+  </header>
+
+  {{ range first 1 $releases }}
+  <section class="release-box">
+    <div class="release-box-head">
+      <div><span class="muted">Latest release</span> <strong>{{ .Params.tag }}</strong></div>
+      <time class="muted" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+    </div>
+    {{ partial "downloads.html" .Params.assets }}
+    <a href="{{ .RelPermalink }}">What's new in {{ .Params.tag }} →</a>
+  </section>
+  {{ end }}
+
+  {{ with $p.image }}<img class="project-image" src="{{ . }}" alt="Screenshot of {{ $p.name }}">{{ end }}
+
+  <div class="prose">{{ .Content }}</div>
+
+  {{ with $releases }}
+  <section>
+    <h2>Release history</h2>
+    <ul class="news-list">{{ range . }}{{ partial "news-item.html" . }}{{ end }}</ul>
+  </section>
+  {{ end }}
+</article>
+{{ end }}

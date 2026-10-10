@@ -1,0 +1,6 @@
+{{ define "main" }}
+<header class="page-head"><h1>{{ .Title }}</h1></header>
+<ul class="news-list">
+  {{ range .RegularPages }}<li class="news-item"><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>{{ end }}
+</ul>
+{{ end }}

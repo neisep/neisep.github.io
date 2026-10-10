@@ -1,0 +1,32 @@
+{{- /* Turns every published GitHub release of each project in data/projects.yaml into a news page. */ -}}
+{{- $headers := dict "Accept" "application/vnd.github+json" "X-GitHub-Api-Version" "2022-11-28" -}}
+{{- with os.Getenv "HUGO_GITHUB_TOKEN" -}}
+  {{- $headers = merge $headers (dict "Authorization" (printf "Bearer %s" .)) -}}
+{{- end -}}
+{{- range $project := hugo.Data.projects -}}
+  {{- $url := printf "https://api.github.com/repos/%s/releases?per_page=100" $project.repo -}}
+  {{- with try (resources.GetRemote $url (dict "headers" $headers)) -}}
+    {{- with .Err -}}
+      {{- warnf "news: could not fetch releases for %s: %s" $project.repo . -}}
+    {{- else with .Value -}}
+      {{- range transform.Unmarshal . -}}
+        {{- if or .draft .prerelease -}}{{- continue -}}{{- end -}}
+        {{- $assets := slice -}}
+        {{- if not $project.private -}}
+          {{- range .assets -}}
+            {{- $assets = $assets | append (dict "name" .name "url" .browser_download_url "size" .size) -}}
+          {{- end -}}
+        {{- end -}}
+        {{- $.AddPage (dict
+          "path" (printf "%s-%s" $project.slug (replace .tag_name "." "-"))
+          "title" (printf "%s %s" $project.name .tag_name)
+          "dates" (dict "date" (time.AsTime .published_at))
+          "content" (dict "mediaType" "text/markdown" "value" (.body | default ""))
+          "params" (dict "project" $project.slug "tag" .tag_name "release_url" .html_url "assets" $assets)
+        ) -}}
+      {{- end -}}
+    {{- else -}}
+      {{- warnf "news: no releases visible for %s (private repo without a token?)" $project.repo -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}

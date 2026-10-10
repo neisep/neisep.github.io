@@ -1,0 +1,17 @@
+{{ define "main" }}
+{{ $p := partial "project-data.html" .Params.project }}
+<article class="release">
+  <header class="page-head">
+    {{ with site.GetPage (printf "/projects/%s" $p.slug) }}<a class="eyebrow" href="{{ .RelPermalink }}">{{ $p.name }}</a>{{ end }}
+    <h1>{{ .Title }}</h1>
+    <time class="muted" datetime="{{ .Date.Format "2006-01-02" }}">Released {{ .Date.Format "January 2, 2006" }}</time>
+  </header>
+  {{ partial "downloads.html" .Params.assets }}
+  <div class="prose">
+    {{ with .Content }}{{ . }}{{ else }}<p class="muted">No release notes.</p>{{ end }}
+  </div>
+  {{ if not $p.private }}
+  <p><a href="{{ .Params.release_url }}" rel="noopener">View this release on GitHub →</a></p>
+  {{ end }}
+</article>
+{{ end }}

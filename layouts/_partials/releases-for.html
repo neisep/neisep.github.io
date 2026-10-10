@@ -1,0 +1,6 @@
+{{- /* Returns the news pages (releases) for a project slug, newest first. */ -}}
+{{- $pages := slice -}}
+{{- with site.GetPage "/news" -}}
+  {{- $pages = (where .RegularPages "Params.project" $).ByDate.Reverse -}}
+{{- end -}}
+{{- return $pages -}}

@@ -1,0 +1,18 @@
+{{- /* Download buttons for a release; context is the release's assets slice. */ -}}
+{{- with . -}}
+<div class="downloads">
+  {{- range . -}}
+    {{- $n := lower .name -}}
+    {{- $label := .name -}}
+    {{- if or (strings.Contains $n "windows") (strings.HasSuffix $n ".exe") (strings.HasSuffix $n ".msi") }}{{ $label = "Windows" -}}
+    {{- else if or (strings.Contains $n "macos") (strings.Contains $n "darwin") (strings.Contains $n "osx") }}{{ $label = "macOS" -}}
+    {{- else if strings.Contains $n "linux" }}{{ $label = "Linux" -}}
+    {{- end }}
+  <a class="btn btn-download" href="{{ .url }}" title="{{ .name }}">
+    <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span>{{ $label }}</span>
+    <small>{{ lang.FormatNumber 1 (div (float .size) 1048576) }} MB</small>
+  </a>
+  {{- end }}
+</div>
+{{- end -}}
