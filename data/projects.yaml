@@ -28,3 +28,10 @@
   repo: neisep/waf-suggestion-opnsense
   tagline: OPNsense plugin that suggests narrowly scoped WAF rules from your nginx access logs.
   tech: [OPNsense, Python, PHP]
+- slug: leaklens
+  name: LeakLens
+  repo: neisep/LeakLens
+  tagline: Finds memory leaks in running .NET apps and explains them in plain language.
+  tech: [Rust, Slint, .NET]
+  image: /img/projects/leaklens.png
+  private: true  # repo not public: no source link or downloads on the site
