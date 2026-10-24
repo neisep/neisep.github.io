@@ -3,8 +3,7 @@ name: Build & Deploy site
 on:
   push:
     branches: [master]
-  schedule:
-    - cron: '17 * * * *' # hourly: picks up new releases from the project repos
+    tags: ['*'] # push a tag to rebuild, e.g. to pick up new releases from the project repos
   workflow_dispatch:
 
 permissions:
