@@ -9,4 +9,4 @@ weight: 30
 - `[[Wikilinks]]`, quick switcher, accent-insensitive full-text search and vault-wide search and replace
 - System, light and dark themes
 
-Built with .NET 10, Avalonia 12 and Markdig. MdNotes is not publicly downloadable yet. Release notes are still published here.
+Built with .NET 10, Avalonia 12 and Markdig.

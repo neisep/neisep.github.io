@@ -17,7 +17,6 @@
   tagline: Local, Obsidian-style Markdown notes with natively rendered Mermaid diagrams.
   tech: [C#, .NET 10, Avalonia]
   image: /img/projects/mdnotes.png
-  private: true  # repo not public: no source link or downloads on the site
 - slug: vlc2chromecast
   name: vlc2chromecast
   repo: neisep/vlc2chromecast-rust
