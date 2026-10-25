@@ -3,6 +3,8 @@
 <div class="downloads">
   {{- range . -}}
     {{- $n := lower .name -}}
+    {{- /* Checksum files (e.g. Probe's SHA256SUMS for its in-app updater) are not downloads. */ -}}
+    {{- if or (eq $n "sha256sums") (strings.HasSuffix $n ".sha256") }}{{ continue }}{{ end -}}
     {{- $label := .name -}}
     {{- if or (strings.Contains $n "windows") (strings.HasSuffix $n ".exe") (strings.HasSuffix $n ".msi") }}{{ $label = "Windows" -}}
     {{- else if or (strings.Contains $n "macos") (strings.Contains $n "darwin") (strings.Contains $n "osx") }}{{ $label = "macOS" -}}

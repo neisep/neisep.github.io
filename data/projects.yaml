@@ -11,6 +11,7 @@
   repo: neisep/Probe
   tagline: A native, fast REST client. Plain .http files, no cloud, no telemetry.
   tech: [Rust, egui, HTTP]
+  image: /img/projects/probe.png
 - slug: mdnotes
   name: MdNotes
   repo: neisep/MdNotes

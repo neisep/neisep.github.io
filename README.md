@@ -5,7 +5,8 @@ Portfolio site built with [Hugo](https://gohugo.io/) and deployed to GitHub Page
 ## How release news works
 
 Each project's tag pipeline (`v*`) publishes a GitHub Release whose notes come from `.github/scripts/changelog.sh`.
-This site rebuilds every hour (also on push and manual run). At build time `content/news/_content.gotmpl` fetches
+The release workflow then triggers this site's `deploy.yml`, so the site rebuilds right after each release (it also
+rebuilds on push to `master`, on any tag push and on a manual run). At build time `content/news/_content.gotmpl` fetches
 `https://api.github.com/repos/<repo>/releases` for every project in `data/projects.yaml` and turns each published
 release into a news page with its changelog and download links.
 
@@ -13,7 +14,10 @@ release into a news page with its changelog and download links.
 
 1. Add an entry to `data/projects.yaml` (`private: true` hides the source link and downloads).
 2. Add `content/projects/<slug>.md` with the description, and optionally a screenshot in `static/img/projects/`.
-3. Give the project a release workflow that runs `changelog.sh`. Copy it from one of the existing projects.
+3. Give the project a release workflow that runs `changelog.sh` and ends with the *Trigger site rebuild* step. Copy
+   it from one of the existing projects (Probe, justanothergitgui).
+4. Add the `SITE_DISPATCH_TOKEN` secret to the project repo: a fine-grained PAT with *Actions: Read and write* on
+   `neisep.github.io` only.
 
 ## Local development
 
